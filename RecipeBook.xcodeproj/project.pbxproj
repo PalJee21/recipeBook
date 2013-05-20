@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DB3B98B1749CE1B000641BC /* RecipeBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DB3B9891749CE1B000641BC /* RecipeBook.xcdatamodeld */; };
+		7DB3B98E1749CF44000641BC /* AddRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB3B98D1749CF44000641BC /* AddRecipeViewController.m */; };
+		7DB3B9901749D39D000641BC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB3B98F1749D39D000641BC /* CoreData.framework */; };
 		7DB7C9241744AC0F0028A786 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB7C9231744AC0F0028A786 /* UIKit.framework */; };
 		7DB7C9261744AC0F0028A786 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB7C9251744AC0F0028A786 /* Foundation.framework */; };
 		7DB7C9281744AC0F0028A786 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB7C9271744AC0F0028A786 /* CoreGraphics.framework */; };
@@ -18,9 +21,14 @@
 		7DB7C93A1744AC100028A786 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DB7C9391744AC100028A786 /* Default-568h@2x.png */; };
 		7DB7C93D1744AC100028A786 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB7C93B1744AC100028A786 /* MainStoryboard.storyboard */; };
 		7DB7C9401744AC100028A786 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB7C93F1744AC100028A786 /* RecipeViewController.m */; };
+		7DB7C9481744C03E0028A786 /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB7C9471744C03E0028A786 /* RecipeDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7DB3B98A1749CE1B000641BC /* RecipeBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeBook.xcdatamodel; sourceTree = "<group>"; };
+		7DB3B98C1749CF44000641BC /* AddRecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRecipeViewController.h; sourceTree = "<group>"; };
+		7DB3B98D1749CF44000641BC /* AddRecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRecipeViewController.m; sourceTree = "<group>"; };
+		7DB3B98F1749D39D000641BC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7DB7C9201744AC0F0028A786 /* RecipeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB7C9231744AC0F0028A786 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7DB7C9251744AC0F0028A786 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,6 +45,8 @@
 		7DB7C93C1744AC100028A786 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		7DB7C93E1744AC100028A786 /* RecipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
 		7DB7C93F1744AC100028A786 /* RecipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
+		7DB7C9461744C03E0028A786 /* RecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailViewController.h; sourceTree = "<group>"; };
+		7DB7C9471744C03E0028A786 /* RecipeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DB3B9901749D39D000641BC /* CoreData.framework in Frameworks */,
 				7DB7C9241744AC0F0028A786 /* UIKit.framework in Frameworks */,
 				7DB7C9261744AC0F0028A786 /* Foundation.framework in Frameworks */,
 				7DB7C9281744AC0F0028A786 /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +67,7 @@
 		7DB7C9171744AC0F0028A786 = {
 			isa = PBXGroup;
 			children = (
+				7DB3B98F1749D39D000641BC /* CoreData.framework */,
 				7DB7C9291744AC0F0028A786 /* RecipeBook */,
 				7DB7C9221744AC0F0028A786 /* Frameworks */,
 				7DB7C9211744AC0F0028A786 /* Products */,
@@ -83,12 +95,17 @@
 		7DB7C9291744AC0F0028A786 /* RecipeBook */ = {
 			isa = PBXGroup;
 			children = (
+				7DB3B98C1749CF44000641BC /* AddRecipeViewController.h */,
+				7DB3B98D1749CF44000641BC /* AddRecipeViewController.m */,
 				7DB7C9321744AC0F0028A786 /* RecipeAppDelegate.h */,
 				7DB7C9331744AC0F0028A786 /* RecipeAppDelegate.m */,
 				7DB7C93B1744AC100028A786 /* MainStoryboard.storyboard */,
 				7DB7C93E1744AC100028A786 /* RecipeViewController.h */,
 				7DB7C93F1744AC100028A786 /* RecipeViewController.m */,
 				7DB7C92A1744AC0F0028A786 /* Supporting Files */,
+				7DB7C9461744C03E0028A786 /* RecipeDetailViewController.h */,
+				7DB3B9891749CE1B000641BC /* RecipeBook.xcdatamodeld */,
+				7DB7C9471744C03E0028A786 /* RecipeDetailViewController.m */,
 			);
 			path = RecipeBook;
 			sourceTree = "<group>";
@@ -177,6 +194,9 @@
 				7DB7C9301744AC0F0028A786 /* main.m in Sources */,
 				7DB7C9341744AC0F0028A786 /* RecipeAppDelegate.m in Sources */,
 				7DB7C9401744AC100028A786 /* RecipeViewController.m in Sources */,
+				7DB7C9481744C03E0028A786 /* RecipeDetailViewController.m in Sources */,
+				7DB3B98B1749CE1B000641BC /* RecipeBook.xcdatamodeld in Sources */,
+				7DB3B98E1749CF44000641BC /* AddRecipeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,8 +319,22 @@
 				7DB7C9451744AC100028A786 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7DB3B9891749CE1B000641BC /* RecipeBook.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7DB3B98A1749CE1B000641BC /* RecipeBook.xcdatamodel */,
+			);
+			currentVersion = 7DB3B98A1749CE1B000641BC /* RecipeBook.xcdatamodel */;
+			path = RecipeBook.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7DB7C9181744AC0F0028A786 /* Project object */;
 }

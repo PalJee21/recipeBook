@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecipeViewController : UIViewController
+@interface RecipeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (strong) NSMutableArray *recipesDB;
 
 @end
