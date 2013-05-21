@@ -13,25 +13,36 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N51-Jh-W1z">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="xRO-9U-CQH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="N51-Jh-W1z" firstAttribute="top" secondItem="wgO-Jg-7x3" secondAttribute="top" constant="98" id="NnD-wu-V5F"/>
-                            <constraint firstItem="N51-Jh-W1z" firstAttribute="leading" secondItem="wgO-Jg-7x3" secondAttribute="leading" constant="74" id="a44-9U-Rzd"/>
+                            <constraint firstItem="N51-Jh-W1z" firstAttribute="trailing" secondItem="wgO-Jg-7x3" secondAttribute="trailing" type="default" id="2YB-m6-wlI"/>
+                            <constraint firstItem="N51-Jh-W1z" firstAttribute="top" secondItem="wgO-Jg-7x3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="3A5-zb-6uG"/>
+                            <constraint firstItem="N51-Jh-W1z" firstAttribute="leading" secondItem="wgO-Jg-7x3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="UJT-Zj-coa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pli-3y-eUq"/>
+                    <navigationItem key="navigationItem" id="pli-3y-eUq">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="ahf-io-7dY">
+                            <connections>
+                                <action selector="editRecipe:" destination="77e-nO-ni1" id="CRZ-vC-iVN"/>
+                                <segue destination="U7I-z0-uu2" kind="modal" identifier="editRecipe" id="1rS-RJ-Bc8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="recipeLabel" destination="N51-Jh-W1z" id="jRg-oY-vaU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8b-FE-PW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="516"/>
+            <point key="canvasLocation" x="1468" y="622"/>
         </scene>
         <!--Recipe View Controller - Recipe Book-->
         <scene sceneID="5">
@@ -125,8 +136,9 @@
                             <constraint firstItem="OvI-fm-RJw" firstAttribute="leading" secondItem="Nlf-Tm-VGn" secondAttribute="leading" type="default" id="kP3-1N-g3Z"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0LD-fx-nyX"/>
                     <connections>
-                        <outlet property="recipeName" destination="zTN-b8-Vik" id="WZB-w7-1YW"/>
+                        <outlet property="recipeNameTextField" destination="zTN-b8-Vik" id="d3l-7A-RjA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X43-GC-yUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,9 +164,38 @@
             <point key="canvasLocation" x="477" y="187"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddRecipeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddRecipeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="outlet" name="recipeNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RecipeDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecipeDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="editRecipe:"/>
+                <relationship kind="outlet" name="recipeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RecipeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecipeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="1rS-RJ-Bc8"/>
+    </inferredMetricsTieBreakers>
 </document>

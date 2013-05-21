@@ -7,6 +7,7 @@
 //
 
 #import "RecipeDetailViewController.h"
+#import "AddRecipeViewController.h"
 
 @interface RecipeDetailViewController ()
 
@@ -15,6 +16,7 @@
 @implementation RecipeDetailViewController
 @synthesize recipeLabel;
 @synthesize recipeName;
+@synthesize recipe;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +32,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     // Set the Label text with the selected recipe
-    recipeLabel.text = recipeName;
+    recipeLabel.text = [self.recipe valueForKey:@"recipeName"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,4 +41,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)editRecipe:(id)sender {
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"editRecipe"]) {
+      
+        AddRecipeViewController *destViewController = segue.destinationViewController;
+        destViewController.recipe = recipe;
+    }
+
+}
 @end

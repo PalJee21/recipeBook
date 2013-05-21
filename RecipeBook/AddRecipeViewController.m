@@ -7,12 +7,14 @@
 //
 
 #import "AddRecipeViewController.h"
+#import "RecipeDetailViewController.h"
 
 @interface AddRecipeViewController ()
 
 @end
 
 @implementation AddRecipeViewController
+@synthesize recipe;
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
@@ -34,7 +36,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
+    //if recipe not nil, fill the object at label
+    if(recipe){
+        self.recipeNameTextField.text = [recipe valueForKey:@"recipeName"];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,10 +56,17 @@
 - (IBAction)save:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    // Create a new managed object
-    NSManagedObject *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
-    [newRecipe setValue:self.recipeName.text forKey:@"recipeName"];
-
+   
+    if(recipe){
+        //update existing object
+        [recipe setValue:self.recipeNameTextField.text forKey:@"recipeName"];
+        
+    }else{
+        // Create a new managed object
+        NSManagedObject *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
+        [newRecipe setValue:self.recipeNameTextField.text forKey:@"recipeName"];
+    }
+    
     NSError *error = nil;
     // Save the object to persistent store
     if (![context save:&error]) {
@@ -61,10 +74,22 @@
     }
     else{
         NSLog(@"Save!");
-
+              
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"editSuccess"])
+    {
+        
+//        NSLog(@"segue in");
+//        RecipeDetailViewController *destVC = [segue destinationViewController];
+//        destVC.recipe = self.recipe;
+//        destVC.recipeName = [self.recipe valueForKey:@"recipeName"];
+    }
 }
 
 @end

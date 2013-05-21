@@ -12,6 +12,9 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *recipeLabel;
 @property (nonatomic, strong) NSString *recipeName;
+@property (strong) NSManagedObject *recipe;
+
+- (IBAction)editRecipe:(id)sender;
 
 
 

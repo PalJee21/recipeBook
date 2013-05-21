@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AddRecipeViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UITextField *recipeName;
+@property (strong, nonatomic) IBOutlet UITextField *recipeNameTextField;
+@property (strong) NSManagedObject *recipe;
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
 

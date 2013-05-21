@@ -47,7 +47,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-     // Initialize table data
+    // Initialize table data
     recipes = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
 }
 
@@ -59,11 +59,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return [recipes count];
+    //    return [recipes count];
     return self.recipesDB.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 // private UICell tableView(Ui tableView, NSIndexpath indexPath);
 //object= [instanClass tableView:tv cellFor :1;]
 //a= [new Class]
@@ -77,20 +77,49 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-//    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
+    //    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
     
     // Configure the cell...
     NSManagedObject *recipe = [self.recipesDB objectAtIndex:indexPath.row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [recipe valueForKey:@"recipeName"]]];
-//    [cell.detailTextLabel setText:[device valueForKey:@"company"]];
+    //    [cell.detailTextLabel setText:[device valueForKey:@"company"]];
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete object from database
+        [context deleteObject:[self.recipesDB objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        // Remove recipe from table view
+        [self.recipesDB removeObjectAtIndex:indexPath.row];
+//        [self.tableView reloadData];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         RecipeDetailViewController *destViewController = segue.destinationViewController;
-        destViewController.recipeName = [recipes objectAtIndex:indexPath.row];
+        destViewController.recipeName = [[self.recipesDB objectAtIndex:indexPath.row]valueForKey:@"recipeName"];
+        destViewController.recipe=[self.recipesDB objectAtIndex:indexPath.row];
     }
 }
 
