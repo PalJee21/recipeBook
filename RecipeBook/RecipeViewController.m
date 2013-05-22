@@ -15,6 +15,7 @@
 
 @implementation RecipeViewController {
     NSArray *recipes;
+    NSArray *recipeImages;
 }
 
 @synthesize tableView;
@@ -49,6 +50,8 @@
     
     // Initialize table data
     recipes = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+    
+     recipeImages = [NSArray arrayWithObjects:@"angry_birds_cake.jpg", @"creme_brelee.jpg", @"egg_benedict.jpg", @"full_breakfast.jpg", @"green_tea.jpg", @"ham_and_cheese_panini.jpg", @"ham_and_egg_sandwich.jpg", @"hamburger.jpg", @"instant_noodle_with_egg.jpg", @"japanese_noodle_with_pork.jpg", @"mushroom_risotto.jpg", @"noodle_with_bbq_pork.jpg", @"starbucks_coffee.jpg", @"thai_shrimp_cake.jpg", @"vegetable_curry.jpg", @"white_chocolate_donut.jpg", nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,6 +86,7 @@
     NSManagedObject *recipe = [self.recipesDB objectAtIndex:indexPath.row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [recipe valueForKey:@"recipeName"]]];
     //    [cell.detailTextLabel setText:[device valueForKey:@"company"]];
+    [cell.imageView setImage:[UIImage imageNamed:[recipeImages objectAtIndex:(indexPath.row%recipeImages.count)]]];
     return cell;
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rQp-YT-LPV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5uc-1u-GzI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="77e-nO-ni1" customClass="RecipeDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wgO-Jg-7x3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N51-Jh-W1z">
@@ -42,14 +42,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8b-FE-PW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="622"/>
+            <point key="canvasLocation" x="1994" y="622"/>
         </scene>
         <!--Recipe View Controller - Recipe Book-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="RecipeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="oNL-ec-GbS">
@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="187"/>
+            <point key="canvasLocation" x="1429" y="187"/>
         </scene>
         <!--Add Recipe View Controller-->
         <scene sceneID="fxR-d7-Rgc">
@@ -143,12 +143,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X43-GC-yUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1463" y="-126"/>
+            <point key="canvasLocation" x="1989" y="-126"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="um8-U3-mbA">
             <objects>
                 <navigationController id="rQp-YT-LPV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="5Wl-mm-xlh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7fl-7V-cJ2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -161,41 +162,94 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cRw-1k-83o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1003" y="187"/>
+        </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="TwE-7h-JPv">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Vm5-OR-DVH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Sij-yT-UVV"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mTa-M5-a0w">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rUd-k7-PJX" kind="relationship" relationship="rootViewController" id="73B-hd-vJ9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="34c-qK-g44" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="995" y="879"/>
+        </scene>
+        <!--Recipe Collection View Controller-->
+        <scene sceneID="YqL-ha-80t">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="rUd-k7-PJX" customClass="RecipeCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="4Qu-ke-Qcm">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nNh-6w-5HO">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ECB-77-8xL">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsB-b4-UN7"/>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="xsB-b4-UN7" firstAttribute="top" secondItem="ECB-77-8xL" secondAttribute="top" type="default" id="cZz-8p-Y9O"/>
+                                    <constraint firstItem="xsB-b4-UN7" firstAttribute="leading" secondItem="ECB-77-8xL" secondAttribute="leading" type="default" id="gmW-Tw-lwd"/>
+                                    <constraint firstItem="xsB-b4-UN7" firstAttribute="trailing" secondItem="ECB-77-8xL" secondAttribute="trailing" type="default" id="ppd-E2-KZ2"/>
+                                    <constraint firstItem="xsB-b4-UN7" firstAttribute="bottom" secondItem="ECB-77-8xL" secondAttribute="bottom" type="default" id="u67-uH-eH0"/>
+                                </constraints>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="rUd-k7-PJX" id="tfZ-H7-4kU"/>
+                            <outlet property="delegate" destination="rUd-k7-PJX" id="K4Q-Wh-2dB"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="aJz-rm-K0M"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DeO-54-lOo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1436" y="873"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="WsY-wH-8R8">
+            <objects>
+                <tabBarController id="5uc-1u-GzI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Dbx-qM-eyg">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="rQp-YT-LPV" kind="relationship" relationship="viewControllers" id="e19-hd-Z7S"/>
+                        <segue destination="Vm5-OR-DVH" kind="relationship" relationship="viewControllers" id="3c1-ZU-UAr"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IUG-xo-wuu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="477" y="187"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddRecipeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddRecipeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="outlet" name="recipeNameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RecipeDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecipeDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="editRecipe:"/>
-                <relationship kind="outlet" name="recipeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RecipeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecipeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="1rS-RJ-Bc8"/>
+        <segue reference="LEh-gf-hNN"/>
     </inferredMetricsTieBreakers>
 </document>
